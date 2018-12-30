@@ -229,17 +229,17 @@ COPY run_jupyter.sh /root/
 EXPOSE 6006 8888
 # # the phantomjs does not work must update to new version by wget from official site
 # #https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-# run apt-get update && apt-get install xvfb -y 	&& \
+RUN apt-get update && apt-get install xvfb -y 	&& \
 # 	apt-get clean && \
 # 	apt-get autoremove && \
 # 	rm -rf /var/lib/apt/lists/*
 # run pip uninstall numpy -y
-# run wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
 # # run bzip2 -d phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar -zxvf -
-# run tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2
-# run mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/
-# run chmod +x /usr/bin/phantomjs
-# run rm phantomjs-2.1.1-linux-x86_64.tar.bz2
-# run rm -rvf phantomjs-2.1.1-linux-x86_64
+RUN tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/bin/
+RUN chmod +x /usr/bin/phantomjs
+RUN rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+RUN rm -rvf phantomjs-2.1.1-linux-x86_64
 WORKDIR "/root"
 CMD ["/bin/bash"]
